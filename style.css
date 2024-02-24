@@ -1,52 +1,205 @@
-body {
-    font-family: 'Arial', sans-serif;
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* Header styles */
 header {
     background-color: #34A853;
     color: white;
-    padding: 20px 10%;
+    padding: 1em 5%;
 }
 
-header h1 {
-    margin: 0;
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+/* Navigation styles */
 nav ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
 }
 
 nav ul li {
     display: inline;
-    margin-left: 20px;
+    margin-right: 20px;
 }
 
+nav a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Main content styles */
 main {
-    padding: 20px 10%;
+    padding: 2em 5%;
+    background: #E5E5E5;
+    color: #333;
 }
 
 section {
-    margin-bottom: 20px;
+    margin-bottom: 2em;
 }
 
+/* Gallery styles */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding-bottom: 2rem;
+}
+
+.gallery-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section heading styles */
+h2 {
+    color: #34A853;
+    margin-bottom: 1rem;
+}
+
+/* List styles */
+ul {
+    list-style-position: inside;
+    padding-left: 1rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Button styles */
 .donate-button {
     background-color: #FFD700;
+    /* Gold color for donate button */
     color: black;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
+    display: inline-block;
+    margin-top: 1rem;
 }
 
+/* Adjust the number of columns based on the screen width */
+@media screen and (max-width: 1024px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-toggle {
+            display: block;
+        }
+    .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+         .header-content,
+         .gallery-container {
+             flex-direction: column;
+         }
+    
+         .header-content {
+             align-items: flex-start;
+         }
+    
+           nav ul {
+               display: none;
+               position: absolute;
+               background-color: #34A853;
+               right: 0;
+               top: 60px;
+               width: 100%;
+               flex-direction: column;
+               align-items: flex-start;
+           }
+    
+                  nav ul.is-active {
+                      display: flex;
+                  }
+        
+                  nav ul li {
+                      margin: 0;
+                  }
+                                  nav a {
+                                      padding: 10px;
+                                      display: block;
+                                      width: 100%;
+                                  }
+}
+.nav-toggle.is-active .hamburger {
+    transform: rotate(135deg);
+}
+
+.nav-toggle.is-active .hamburger::before {
+    opacity: 0;
+}
+
+.nav-toggle.is-active .hamburger::after {
+    transform: translateY(-6px) rotate(-270deg);
+}
+@media screen and (max-width: 480px) {
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+         .gallery-image {
+             grid-column: span 2;
+             /* Full width images on smaller screens */
+         }
+}
+/* Hamburger Menu Icon */
+.nav-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+    /* Hidden by default, will be displayed on small screens */
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    display: block;
+    background-color: white;
+    height: 2px;
+    width: 25px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.hamburger::before {
+    transform: translateY(-8px);
+}
+
+.hamburger::after {
+    transform: translateY(6px);
+}
+/* Footer styles */
 footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px;
-    position: fixed;
+    padding: 1em 0;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
