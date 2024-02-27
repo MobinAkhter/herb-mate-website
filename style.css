@@ -193,6 +193,33 @@ li {
 .hamburger::after {
     transform: translateY(6px);
 }
+/* Account Deletion styles */
+#account-deletion {
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 2em;
+}
+
+#account-deletion h2 {
+    color: #D32F2F;
+    /* Red color to signify caution */
+}
+
+#account-deletion p {
+    margin-bottom: 1rem;
+}
+
+.email-link {
+    color: #34A853;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.email-link:hover {
+    text-decoration: underline;
+}
 /* Footer styles */
 footer {
     background-color: #333;
